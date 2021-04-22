@@ -16,11 +16,13 @@ VIMRC = ${HOME}/.vimrc
 all: ${ZSHRC} ${VIMRC}
 
 ${ZSHRC}: ${ZSHRC_SRC}
+	touch $@
 	cp $@ ${BACKUP_DIR}
 	echo "ZSH_HOME=${CURRENT_DIR}" > $@
 	cat $< >> $@
 
 ${VIMRC}: ${VIMRC_SRC}
+	touch $@
 	cp $@ ${BACKUP_DIR}
 	cat $< > $@
 
