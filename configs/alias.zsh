@@ -12,7 +12,11 @@ alias ll='ls -al'
 alias la='ls -a'
 
 
-alias grep='grep --color=always'
+if type ggrep > /dev/null; then
+  alias grep='ggrep --color -P'
+else
+  alias grep='grep --color=always'
+fi
 
 
 if type ccat > /dev/null; then

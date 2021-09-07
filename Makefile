@@ -12,6 +12,16 @@ ZSHRC = ${HOME}/.zshrc
 VIMRC_SRC = ${CURRENT_DIR}/vimrc
 VIMRC = ${HOME}/.vimrc
 
+UNAME := $(shell uname)
+
+ifeq ($(UNAME), Linux)
+  include Linux.mk
+endif
+
+ifeq ($(UNAME), macOS)
+  include macOS.mk
+endif
+
 .PHONY: all
 all: ${ZSHRC} ${VIMRC}
 
@@ -25,4 +35,3 @@ ${VIMRC}: ${VIMRC_SRC}
 	touch $@
 	cp $@ ${BACKUP_DIR}
 	cat $< > $@
-

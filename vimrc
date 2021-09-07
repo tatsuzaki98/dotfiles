@@ -10,4 +10,3 @@ set fenc=utf-8
 set re=0
 filetype on
 filetype plugin indent on
-
