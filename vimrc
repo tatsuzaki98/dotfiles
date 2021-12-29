@@ -8,5 +8,6 @@ set nowrap
 set encoding=utf8
 set fenc=utf-8
 set re=0
+set vb t_vb=
 filetype on
 filetype plugin indent on
