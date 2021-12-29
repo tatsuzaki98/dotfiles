@@ -11,3 +11,5 @@ set re=0
 set vb t_vb=
 filetype on
 filetype plugin indent on
+set belloff=all
+
