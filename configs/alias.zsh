@@ -1,7 +1,10 @@
+# ls
+printf "checking for \e[36mexa\e[m..."
 if type exa > /dev/null; then
+  printf " \e[32mok\e[m.\n"
   alias ls='exa'
 else
-  echo "'exa' is not installed."
+  printf "not detected.\n"
   if [ "$(uname)" "==" "Darwin" ]; then
     alias ls='ls -G'
   else
@@ -12,6 +15,7 @@ alias ll='ls -al'
 alias la='ls -a'
 
 
+# grep
 if type ggrep > /dev/null; then
   alias grep='ggrep --color -P'
 else
@@ -19,13 +23,11 @@ else
 fi
 
 
-if type ccat > /dev/null; then
-  alias cat='ccat'
+# cat
+printf "checking for \e[36mbat\e[m..."
+if type bat > /dev/null; then
+  printf " \e[32mok\e[m.\n"
+  alias cat='bat --theme=GitHub --style="plain"'
 else
-  if type bat > /dev/null; then
-    alias cat='bat --theme=GitHub --style="plain"'
-  else
-    echo "'ccat' or 'bat' is not installed."
-  fi
+  printf "not detected.\n"
 fi
-
