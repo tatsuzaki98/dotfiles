@@ -27,7 +27,7 @@ fi
 printf "checking for \e[36mbat\e[m..."
 if type bat > /dev/null; then
   printf " \e[32mok\e[m.\n"
-  alias cat='bat --theme=GitHub --style="plain"'
+  alias cat='bat --style="plain"'
 else
   printf "not detected.\n"
 fi
