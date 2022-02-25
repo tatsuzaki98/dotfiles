@@ -17,7 +17,7 @@ else
 Host github.com github
     HostName github.com
     User git
-    IdentityFile ~/.ssh/prv/github-rsa
+    IdentityFile ~/.ssh/keys/github-rsa
     Port 22
 
 EOF
