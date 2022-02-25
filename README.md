@@ -7,7 +7,13 @@ mkdir -p -m 700 ~/.ssh/keys
 
 ssh-keygen -b 4096 -t rsa -f ~/.ssh/keys/github-rsa -q -N ""
 
-cat <<EOF >> ~/.ssh/config
+touch ~/.ssh/config
+
+if grep --line-regexp --quiet "Host github.com github" ~/.ssh/config
+then
+    echo "ssh config is already set"
+else
+    cat <<EOF >> ~/.ssh/config
 Host github.com github
     HostName github.com
     User git
@@ -15,6 +21,7 @@ Host github.com github
     Port 22
 
 EOF
+fi
 
 more ~/.ssh/keys/github-rsa.pub
 ```
