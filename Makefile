@@ -1,17 +1,6 @@
-CURRENT_DIR = $(shell pwd)
-
-##### Backup
-BACKUP_DIR = ${CURRENT_DIR}/backup
-
-##### ZSH
-ZSH_CONFIGS = $(wildcard ${CURRENT_DIR}/configs/*.zsh)
-ZSHRC_SRC = ${CURRENT_DIR}/zshrc
-ZSHRC = ${HOME}/.zshrc
-
-##### VIM
-VIMRC_SRC = ${CURRENT_DIR}/vimrc
-VIMRC = ${HOME}/.vimrc
-
+######################################
+# Include
+#
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
@@ -22,16 +11,32 @@ ifeq ($(UNAME), macOS)
   include macOS.mk
 endif
 
+
+######################################
+# Aliases
+#
 .PHONY: all
-all: ${ZSHRC} ${VIMRC}
+all: $(HOME)/.zshrc $(HOME)/.vimrc local_configs/style.zsh
 
-${ZSHRC}: ${ZSHRC_SRC}
-	touch $@
-	cp $@ ${BACKUP_DIR}
-	echo "ZSH_HOME=${CURRENT_DIR}" > $@
-	cat $< >> $@
 
-${VIMRC}: ${VIMRC_SRC}
-	touch $@
-	cp $@ ${BACKUP_DIR}
-	cat $< > $@
+######################################
+# Dependencies
+#
+$(HOME)/.zshrc: zshrc $(wildcard configs/*.zsh) $(wildcard local_configs/*.zsh)
+$(HOME)/.vimrc: vimrc
+local_configs/style.zsh: style.zsh
+
+
+######################################
+# Recipes
+#
+$(HOME)/.zshrc:
+	echo "ZSH_HOME=$(shell pwd)" > $@
+	cat zshrc >> $@
+
+$(HOME)/.vimrc:
+	install vimrc $@
+
+local_configs/style.zsh: style.zsh
+	install style.zsh $@
+
