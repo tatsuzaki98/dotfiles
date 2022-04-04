@@ -2,7 +2,7 @@
 printf "checking for \e[36mexa\e[m..."
 if type exa > /dev/null; then
   printf " \e[32mok\e[m.\n"
-  alias ls='exa'
+  alias ls='exa --sort=extension --group-directories-first'
 else
   printf "not detected.\n"
   if [ "$(uname)" "==" "Darwin" ]; then
