@@ -1,3 +1,5 @@
 /local_configs/*
 /backup/*
 !README.md
+
+.vscode/*.log
