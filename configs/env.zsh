@@ -43,11 +43,12 @@ function __activate-nvm__() {
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  export PROMPT="(nvm) ${PROMPT}"
 }
 printf "\e[36mnvm\e[m:"
 if [ -d "$HOME/.nvm" ]; then
-  alias activate-nvm="__activate-nvm__"
-  printf " \e[32mactivate-oneapi\e[m\n"
+  alias nvm-activate="__activate-nvm__"
+  printf " \e[32mnvm-activate\e[m\n"
 else
   printf "not available.\n"
 fi
@@ -60,8 +61,8 @@ function __activate-oneapi__() {
 }
 printf "\e[36moneapi\e[m:"
 if [ -d "/opt/intel/oneapi" ]; then
-  alias activate-oneapi="__activate-oneapi__"
-  printf " \e[32mactivate-oneapi\e[m\n"
+  alias oneapi-activate="__activate-oneapi__"
+  printf " \e[32moneapi-activate\e[m\n"
 else
   printf "not available.\n"
 fi
