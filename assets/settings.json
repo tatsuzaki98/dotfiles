@@ -1,0 +1,146 @@
+{
+    "remote.SSH.remotePlatform": {
+        "rwes-imac": "macOS",
+        "shell-lsta-mms04": "linux",
+        "shell-lsta-vis-linfer": "linux",
+        "rwes-paddy01": "linux",
+        "tokusui": "linux",
+        "rwes-tokusui": "linux"
+    },
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+            },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name":"ptex2pdf",
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ]
+        },
+        {
+            "name":"ptex2pdf (uplatex)",
+            "command": "ptex2pdf",
+            "args": [
+                "-l",
+                "-u",
+                "-ot",
+                "-kanji=utf8 -synctex=1",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pbibtex",
+            "command": "pbibtex",
+            "args": [
+                "-kanji=utf8",
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "ptex2pdf*2",
+            "tools": [
+                "ptex2pdf",
+                "ptex2pdf"
+            ]
+        },
+        {
+            "name": "ptex2pdf -> pbibtex -> ptex2pdf*2",
+            "tools": [
+                "ptex2pdf",
+                "pbibtex",
+                "ptex2pdf",
+                "ptex2pdf"
+            ]
+        },
+        {
+            "name": "ptex2pdf (uplatex) *2",
+            "tools": [
+                "ptex2pdf (uplatex)",
+                "ptex2pdf (uplatex)"
+            ]
+        },
+        {
+            "name": "ptex2pdf (uplatex) -> pbibtex -> ptex2pdf (uplatex) *2",
+            "tools": [
+                "ptex2pdf (uplatex)",
+                "pbibtex",
+                "ptex2pdf (uplatex)",
+                "ptex2pdf (uplatex)"
+            ]
+        },
+    ],
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.fontSize": 12,
+    "notebook.lineNumbers": "on",
+    "git.ignoreLegacyWarning": true,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.sortOrder": "type",
+    "workbench.colorTheme": "Solarized Light+",
+    "python.linting.flake8Enabled": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-n>": false,
+        "<C-c>": false,
+        "<C-x>": false,
+        "<C-v>": false,
+        "<C-b>": false,
+        "<C-j>": false,
+        "<C-k>": false
+    },
+    "notebook.output.textLineLimit": 100
+}
