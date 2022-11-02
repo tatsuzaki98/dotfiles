@@ -1,42 +1,15 @@
-######################################
-# Include
-#
-UNAME := $(shell uname)
-
-ifeq ($(UNAME), Linux)
-  include Linux.mk
-endif
-
-ifeq ($(UNAME), macOS)
-  include macOS.mk
-endif
-
-
-######################################
-# Aliases
-#
+# Aliase
 .PHONY: all
 all: $(HOME)/.zshrc $(HOME)/.vimrc local_configs/style.zsh
 
 
-######################################
-# Dependencies
-#
-$(HOME)/.zshrc: zshrc $(wildcard configs/*.zsh) $(wildcard local_configs/*.zsh)
-$(HOME)/.vimrc: vimrc
-local_configs/style.zsh: style.zsh
-
-
-######################################
 # Recipes
-#
-$(HOME)/.zshrc:
+$(HOME)/.zshrc: assets/zshrc
 	echo "ZSH_HOME=$(shell pwd)" > $@
-	cat zshrc >> $@
+	cat $< >> $@
 
-$(HOME)/.vimrc:
-	install vimrc $@
+$(HOME)/.vimrc: assets/vimrc
+	install $< $@
 
-local_configs/style.zsh: style.zsh
-	install style.zsh $@
-
+local_configs/style.zsh: assets/style.zsh
+	install $< $@
