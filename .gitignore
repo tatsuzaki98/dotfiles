@@ -3,3 +3,5 @@
 !README.md
 
 .vscode/*.log
+.DS_Store
+
