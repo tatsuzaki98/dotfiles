@@ -39,30 +39,22 @@ fi
 
 
 # nvm | Node.js version manager
-function __activate-nvm__() {
+printf "\e[36mnvm\e[m:"
+if [ -d "$HOME/.nvm" ]; then
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  export PROMPT="(nvm) ${PROMPT}"
-}
-printf "\e[36mnvm\e[m:"
-if [ -d "$HOME/.nvm" ]; then
-  alias nvm-activate="__activate-nvm__"
-  printf " \e[32mnvm-activate\e[m\n"
+  printf " \e[32mok.\e[m\n"
 else
   printf "not available.\n"
 fi
 
 
 # intel oneapi
-function __activate-oneapi__() {
-  . /opt/intel/oneapi/setvars.sh
-  export PROMPT="(oneapi) ${PROMPT}"
-}
 printf "\e[36moneapi\e[m:"
 if [ -d "/opt/intel/oneapi" ]; then
-  alias oneapi-activate="__activate-oneapi__"
-  printf " \e[32moneapi-activate\e[m\n"
+  . /opt/intel/oneapi/setvars.sh > /dev/null
+  printf " \e[32mok.\e[m\n"
 else
   printf "not available.\n"
 fi

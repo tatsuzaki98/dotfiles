@@ -14,6 +14,10 @@ done
 cat ~/.ssh/config > ~/.ssh/config_`date --iso-8601="seconds"`
 
 cat <<EOF > ~/.ssh/config
+Host *
+  ServerAliveInterval 60
+  TCPKeepAlive yes
+
 Host github
   HostName github.com
   User git
@@ -24,6 +28,7 @@ Host rwes-*
 Host rwes-impact
   HostName 10.244.100.249
   IdentityFile ~/.ssh/keys/rwes-impact
+  KexAlgorithms +diffie-hellman-group1-sha1
 Host rwes-dprilv
   HostName 10.244.100.244
   IdentityFile ~/.ssh/keys/rwes-dprilv
