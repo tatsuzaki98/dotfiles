@@ -51,10 +51,14 @@ fi
 
 
 # intel oneapi
+function __activate-oneapi__() {
+  . /opt/intel/oneapi/setvars.sh
+  export PROMPT="(oneapi) ${PROMPT}"
+}
 printf "\e[36moneapi\e[m:"
 if [ -d "/opt/intel/oneapi" ]; then
-  . /opt/intel/oneapi/setvars.sh > /dev/null
-  printf " \e[32mok.\e[m\n"
+  alias oneapi-activate="__activate-oneapi__"
+  printf " \e[32moneapi-activate\e[m\n"
 else
   printf "not available.\n"
 fi
