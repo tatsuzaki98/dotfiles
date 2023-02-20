@@ -11,6 +11,6 @@ GIT_PS1_STATESEPARATOR=""
 
 # name: %n
 # host: %m
-PROMPT='${fg[green]}$(__git_ps1 "(%s) ")%~ %n@%m
+PROMPT='${fg[green]}$(__git_ps1 "(%s) ")${fg[blue]}%~ ${fg[green]}%n@%m
 ${reset_color}\$ '
 
