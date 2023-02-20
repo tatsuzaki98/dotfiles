@@ -1,6 +1,6 @@
 # Aliase
 .PHONY: all
-all: $(HOME)/.zshrc $(HOME)/.vimrc local_configs/style.zsh
+all: $(HOME)/.zshrc $(HOME)/.vimrc
 
 
 # Recipes
@@ -9,7 +9,4 @@ $(HOME)/.zshrc: assets/zshrc
 	cat $< >> $@
 
 $(HOME)/.vimrc: assets/vimrc
-	install $< $@
-
-local_configs/style.zsh: assets/style.zsh
 	install $< $@
