@@ -11,14 +11,17 @@ do
   fi
 done
 
-cat ~/.ssh/config > ~/.ssh/config_`date --iso-8601="seconds"`
+if [ -e ~/.ssh/config ]; then
+  mkdir -p ~/.ssh/old
+  cat ~/.ssh/config > ~/.ssh/old/config_`date +"%Y-%m-%d_%H-%M-%S"`
+fi
 
 cat <<EOF > ~/.ssh/config
 Host *
   ServerAliveInterval 60
   TCPKeepAlive yes
 
-Host github
+Host github github.com
   HostName github.com
   User git
   IdentityFile ~/.ssh/keys/github
