@@ -6,6 +6,7 @@ else
 fi
 
 # docker compose
+alias docker-compose='docker compose'
 alias dc='docker compose'
 alias dc-build='docker compose build'
 alias dc-run='docker compose run'
