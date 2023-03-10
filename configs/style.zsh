@@ -11,9 +11,11 @@ PROMPT_FIRST_LINE='\
 
 PROMPT_SECOND_LINE='\
 %K{green}%F{black} $(date +%H:%M:%S) $(__git_ps1 "%s ")%f%k\
- $ \
 '
+
+PROMPT_THIRD_LINE='$ '
 
 PROMPT="\
 $PROMPT_FIRST_LINE
-$PROMPT_SECOND_LINE"
+$PROMPT_SECOND_LINE
+$PROMPT_THIRD_LINE"
