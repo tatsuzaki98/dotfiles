@@ -1,3 +1,10 @@
+# list of alias
+# - grep: ggrep or grep with color
+# - dc: docker compose, and some alias for docker compose command
+# - ls: exa if available
+#   - tree: exa --tree
+# - cat: bat if available
+
 # grep
 if type ggrep > /dev/null; then
   alias grep='ggrep --color'
@@ -39,4 +46,11 @@ if type bat > /dev/null; then
   alias cat='bat --style="plain" --theme="ansi"'
 else
   printf "not available.\n"
+fi
+
+# tree
+if type exa > /dev/null; then
+  alias tree='exa --tree'
+else
+  echo > /dev/null
 fi
