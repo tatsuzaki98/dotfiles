@@ -25,7 +25,7 @@ alias dc-exec='docker compose exec'
 # ls -> exa 
 if type exa > /dev/null; then
   alias ls='exa --sort=extension --group-directories-first --group'
-  printf "alias: \e[36mls\e[m -> \e[36mexa\e[m\n"
+  printf "        alias: \e[36mls\e[m -> \e[36mexa\e[m\n"
 else
   if [ "$(uname)" "==" "Darwin" ]; then
     alias ls='ls -G'
