@@ -23,12 +23,10 @@ alias dc-ps='docker compose ps'
 alias dc-exec='docker compose exec'
 
 # ls -> exa 
-printf "\e[36mexa\e[m:"
 if type exa > /dev/null; then
-  printf " \e[32mok\e[m.\n"
   alias ls='exa --sort=extension --group-directories-first --group'
+  printf "alias: \e[36mls\e[m -> \e[36mexa\e[m\n"
 else
-  printf "not available.\n"
   if [ "$(uname)" "==" "Darwin" ]; then
     alias ls='ls -G'
   else
