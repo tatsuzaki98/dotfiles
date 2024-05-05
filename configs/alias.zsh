@@ -3,7 +3,6 @@
 # - dc: docker compose, and some alias for docker compose command
 # - ls: exa if available
 #   - tree: exa --tree
-# - cat: bat if available
 
 # grep
 if type ggrep > /dev/null; then
@@ -38,15 +37,6 @@ else
 fi
 alias ll='ls -al'
 alias la='ls -a'
-
-# cat -> bat
-printf "\e[36mbat\e[m:"
-if type bat > /dev/null; then
-  printf " \e[32mok\e[m.\n"
-  alias cat='bat --style="plain" --theme="ansi"'
-else
-  printf "not available.\n"
-fi
 
 # tree
 if type exa > /dev/null; then
