@@ -4,9 +4,20 @@ for ASSET in "configs" "local_configs";
   do
     CONFIG_DIR="${ZSH_HOME}/${ASSET}"
     if [ -d $CONFIG_DIR ] && [ -r $CONFIG_DIR ] && [ -x $CONFIG_DIR ]; then
+      # Load all zsh scripts in the directory
       for CONF in $CONFIG_DIR/*;
       do
-        [[ ${CONF##*/} = *.zsh ]] && . $CONF
+        # Check if the file is a zsh script
+        if [[ ${CONF##*/} = *.zsh ]]; then
+          source $CONF
+
+          # Check if the last command was successful
+          if [ $? -eq 0 ]; then
+            echo "[\e[32mok\e[m] source $CONF"
+          else
+            echo "[\e[31merror\e[m] source $CONF"
+          fi
+        fi
       done
     fi
   done
