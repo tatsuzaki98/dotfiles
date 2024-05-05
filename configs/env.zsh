@@ -29,3 +29,12 @@ if [ -d "$HOME/.cargo" ]; then
 else
   printf "not available.\n"
 fi
+
+
+# docker
+printf "\e[36mdocker\e[m: "
+if type docker > /dev/null; then
+  printf "\e[32mok.\e[m\n"
+else
+  printf "not available.\n"
+fi
