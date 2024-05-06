@@ -9,14 +9,11 @@ for ASSET in "configs" "local_configs";
       do
         # Check if the file is a zsh script
         if [[ ${CONF##*/} = *.zsh ]]; then
-          source $CONF
+          # Print the name of the script
+          printf "[\e[32mconfig\e[m] $CONF\n"
 
-          # Check if the last command was successful
-          if [ $? -eq 0 ]; then
-            echo "[\e[32mok\e[m] source $CONF"
-          else
-            echo "[\e[31merror\e[m] source $CONF"
-          fi
+          # Load the zsh script
+          source $CONF
         fi
       done
     fi
