@@ -4,9 +4,17 @@ for ASSET in "configs" "local_configs";
   do
     CONFIG_DIR="${ZSH_HOME}/${ASSET}"
     if [ -d $CONFIG_DIR ] && [ -r $CONFIG_DIR ] && [ -x $CONFIG_DIR ]; then
+      # Load all zsh scripts in the directory
       for CONF in $CONFIG_DIR/*;
       do
-        [[ ${CONF##*/} = *.zsh ]] && . $CONF
+        # Check if the file is a zsh script
+        if [[ ${CONF##*/} = *.zsh ]]; then
+          # Print the name of the script
+          printf "[\e[32mconfig\e[m] $CONF\n"
+
+          # Load the zsh script
+          source $CONF
+        fi
       done
     fi
   done
