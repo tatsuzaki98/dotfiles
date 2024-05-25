@@ -48,6 +48,6 @@ alias la='ls -a'
 
 # tree
 if type exa > /dev/null; then
-  alias tree='exa --tree'
+  alias tree='exa --tree --level=2'
   __print_alias "tree" "exa --tree"
 fi
