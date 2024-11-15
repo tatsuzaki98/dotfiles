@@ -49,11 +49,4 @@ else
 fi
 
 
-# ifort
-if type ifort > /dev/null; then
-  __print_ok "ifort"
-else
-  __print_not_available "ifort"
-fi
-
 printf "\n"
